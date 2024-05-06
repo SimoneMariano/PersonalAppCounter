@@ -1,7 +1,10 @@
 package com.personalcounter.sqlite;
 
+import static com.personalcounter.sqlite.R.layout.activity_main;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textview0;
     TextView textview1;
-    TextView textAreaRecord;
     Button button0;
     Button button1;
     Button button2;
     Button button3;
     Button btnreset;
+    Button btnreadrecord;
     private DBHandler dbHandler;
     String date = null;
     int count0 = 0;
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -55,9 +58,7 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         btnreset = findViewById(R.id.reset);
-        textAreaRecord = findViewById(R.id.textAreaRecord);
-
-        textAreaRecord.isScrollbarFadingEnabled();
+        btnreadrecord = findViewById(R.id.btnReadRecord);
 
         /*recupero della scelta salvata,
          * questa viene eseguita leggendo una chiave dal nome "Counter0" con valore di default uguale a zero*/
@@ -121,23 +122,17 @@ public class MainActivity extends AppCompatActivity {
                 dbHandler.addRecord(date, player1, player2, result);
             }
 
-            StringBuilder txt = new StringBuilder();
-            txt.append("Last Record: \n");
-            arrRecord = dbHandler.fetchRecord();
-
-            for (int i= 0 ; i< arrRecord.size(); i++){
-                Log.d("RECORD_INFO", "Date: " + arrRecord.get(i).date + ", Player 1: " + arrRecord.get(i).player1 + ", Player 2: " + arrRecord.get(i).player2 + ", Result: " + arrRecord.get(i).result);
-                txt.append("Data: ").append(arrRecord.get(i).date).append(", Player 1: ").append(arrRecord.get(i).player1).append(", Player 2: ").append(arrRecord.get(i).player2).append(", Winner: ").append(arrRecord.get(i).result).append("\n");
-            }
-            Log.d("SECOND_INFO", txt.toString());
-            textAreaRecord.setText(txt.toString());
-
             count0 = 0;
             count1 = 0;
             textview0.setText(String.valueOf(count0));
             textview1.setText(String.valueOf(count1));
             storeData(sharedPref);
 
+        });
+
+        btnreadrecord.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ViewRecordActivity.class);
+            startActivity(intent);
         });
     }
 

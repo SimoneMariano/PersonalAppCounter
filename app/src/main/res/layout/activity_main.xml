@@ -7,6 +7,40 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="47dp"
+        android:text="+"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 2"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="@+id/button3"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="97dp"
+        android:text="Player 1"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnReadRecord"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintStart_toStartOf="@+id/button2" />
+
     <TextView
         android:id="@+id/textview0"
         android:layout_width="wrap_content"
@@ -16,85 +50,76 @@
         app:layout_constraintBottom_toBottomOf="@+id/textview1"
         app:layout_constraintEnd_toEndOf="@+id/button0"
         app:layout_constraintStart_toStartOf="@+id/button0"
-        app:layout_constraintTop_toTopOf="@+id/textview1" />
-
-    <TextView
-        android:id="@+id/textAreaRecord"
-        android:layout_width="301dp"
-        android:layout_height="218dp"
-        android:layout_marginBottom="48dp"
-        android:ellipsize="marquee"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
-        android:text="Last Record: \n"
-        app:layout_constraintBottom_toTopOf="@+id/reset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textview1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="227dp"
-        android:text="0"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="@+id/button1"
-        app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="128dp"
-        android:text="+"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="52dp"
-        android:text="+"
-        app:layout_constraintBottom_toBottomOf="@+id/button0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button0"
+        app:layout_constraintTop_toTopOf="@+id/textview1"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="372dp"
+        android:layout_marginBottom="35dp"
         android:text="-"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="@+id/textview0"
         app:layout_constraintStart_toStartOf="@+id/textview0" />
+
+    <Button
+        android:id="@+id/button0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="34dp"
+        android:text="+"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textview0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="-"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="@+id/textview1"
         app:layout_constraintStart_toStartOf="@+id/textview1"
         app:layout_constraintTop_toTopOf="@+id/button2"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="0"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/button1"
+        app:layout_constraintStart_toStartOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/button1" />
+
     <Button
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="73dp"
         android:text="Azzera e Salva"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnReadRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="209dp"
+        android:text="Read All Records"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/reset"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="@+id/reset" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
